@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我是个请求页面</title>
+</head>
+
+<body>
+    李金的个人信息
+    <div class="data-wrap">
+        <p class="name"></p>
+        <p class="age"></p>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+<script>
+    $.ajax({
+        url: '/getUserInfo',
+        headers: {},
+        type: 'get',
+        success: function(res) {
+            $('.data-wrap .name').html(res.name);
+            $('.data-wrap .age').html(res.age);
+        },
+        error: function(res) {
+            console.log(res)
+        }
+    })
+</script>
+
+</html>
